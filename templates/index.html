@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1 id="Heading">Workout Planner</h1>
+        <div class="Topic">
+
+            <div class="selector"  onclick="selectWorkout(this)">
+            <p>BODYWEIGHT </p>
+            
+            </div>
+            
+            <div class="selector" onclick="selectWorkout(this)">
+            <p>GYM</p>
+            </div>
+
+            <div class="selector" onclick="selectWorkout(this)">
+            <p>HYBRID</p>
+            </div>
+
+        </div>
+
+<div class="fitness-goal-container">
+  <label for="fitness-goal" class="fitness-goal-label">Fitness Goal</label>
+  <div class="fitness-goal-select-group">
+    <select id="fitness-goal" name="fitness-goal" class="fitness-goal-select">
+      <option>Build Muscle</option>
+      <option>Functional Strength</option>
+      <option>Lose Fat</option>
+    </select>
+    <button class="generate-plan-btn">Generate Plan</button>
+  </div>
+</div>
+
+ <div class="days-row">
+        {% for day in days %}
+        <div class="day-item">{{ day }}</div>
+        {% endfor %}
+    </div>
+
+
+<div id="workout-result" class="week-container"></div>
+<script src="{{ url_for('static', filename='main.js') }}"></script>
+
+ <!-- <div id="results" style="padding: 20px; border: 1px solid #ccc; margin: 20px;">
+        Loading workout data...
+    </div> -->
+ 
+<!-- Correct path for Flask static files -->
+<!-- <script src="{{ url_for('static', filename='js/main.js') }}"></script> -->
+<!-- <script src="index.js"></script> -->
+    
+</body>
+
+</html>
